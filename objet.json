@@ -15,7 +15,7 @@
     {
         "id": 3,
         "name": "Case 3",
-        "image": "https://picsum.photos/200/300",
+        "image": "/noel/3.avif",
         "number": 3
     },
     {
@@ -33,7 +33,7 @@
     {
         "id": 6,
         "name": "Case 6",
-        "image": "https://picsum.photos/200/300",
+        "image": "/noel/6.avif",
         "number": 6
     },
     {
@@ -45,13 +45,13 @@
     {
         "id": 8,
         "name": "Case 8",
-        "image": "https://picsum.photos/200/300",
+        "image": "/noel/8.avif",
         "number": 8
     },
     {
         "id": 9,
         "name": "Case 9",
-        "image": "https://picsum.photos/200/300",
+        "image": "/noel/9.webp",
         "number": 9
     },
     {
@@ -63,7 +63,7 @@
     {
         "id": 11,
         "name": "Case 11",
-        "image": "https://picsum.photos/200/300",
+        "image": "/noel/11.jpg",
         "number": 11
     },
     {
@@ -75,7 +75,7 @@
     {
         "id": 13,
         "name": "Case 13",
-        "image": "https://picsum.photos/200/300",
+        "image": "/noel/13.jpg",
         "number": 13
     },
     {
@@ -99,7 +99,7 @@
     {
         "id": 17,
         "name": "Case 17",
-        "image": "https://picsum.photos/200/300",
+        "image": "/noel/17.jpg",
         "number": 17
     },
     {
@@ -111,13 +111,13 @@
     {
         "id": 19,
         "name": "Case 19",
-        "image": "https://picsum.photos/200/300",
+        "image": "/noel/19.webp",
         "number": 19
     },
     {
         "id": 20,
         "name": "Case 20",
-        "image": "https://picsum.photos/200/300",
+        "image": "/noel/20.jpg",
         "number": 20
     },
     {
@@ -129,13 +129,13 @@
     {
         "id": 22,
         "name": "Case 22",
-        "image": "https://picsum.photos/200/300",
+        "image": "/noel/22.jpg",
         "number": 22
     },
     {
         "id": 23,
         "name": "Case 23",
-        "image": "https://picsum.photos/200/300",
+        "image": "/noel/23.png",
         "number": 23
     },
     {
