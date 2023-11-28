@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const header = document.querySelector('.header-container');
   // Créer l'image du logo
   const img = document.createElement('img');
-  img.src = '/img/shuriken.png';
+  img.src = './img/shuriken.png';
   // Créer le titre
   const h1 = document.createElement('h1');
   h1.textContent = 'SRPG Calendrier de l\'Avent';
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             Swal.fire({
               title: 'Cette case n\'est pas encore disponible!',
-              html: `<img src="/noel/gif_say_no.gif" width="400" height="200"><br>Jusqu'au ${formattedDate} !`,
+              html: `<img src="./noel/gif_say_no.gif" width="400" height="200"><br>Jusqu'au ${formattedDate} !`,
               confirmButtonText: 'OK'
             });
           }
