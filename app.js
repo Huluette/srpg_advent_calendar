@@ -1,4 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+  // // Réinitialiser les objets spécifiques du localStorage pour les marquer comme non ouverts
+  // localStorage.removeItem('box_1');
+  // localStorage.removeItem('box_2');
   const currentDate = new Date(); // Date actuelle
 
   // créer les éléments HTML pour le header
@@ -44,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
           // Vérifier si la case est disponible en fonction de la date
           if (currentDate >= caseDate || isOpen) {
             const clickedDiv = document.getElementById(caseItem.id);
-            if (!clickedDiv.classList.contains('opened')) {
+            if (clickedDiv.classList.contains('opened')) {
               clickedDiv.className = 'box_opened';
               clickedDiv.textContent = caseItem.message; // Afficher le message spécifique à la case
               clickedDiv.classList.add('opened'); // Marquer la boîte comme ouverte
@@ -56,8 +60,15 @@ document.addEventListener('DOMContentLoaded', () => {
             // Retirer l'écouteur d'événements pour empêcher d'autres clics
             clickedDiv.removeEventListener('click', handleClick);
           } else {
-            // Afficher un message ou une action pour les cases non ouvertes
-            console.log('Cette case n\'est pas encore disponible !');
+            // Afficher une fenêtre modale indiquant que la case n'est pas encore disponible
+            const options = { year: 'numeric', month: 'long', day: '2-digit' };
+            const formattedDate = caseDate.toLocaleDateString('fr-FR', options);
+
+            Swal.fire({
+              title: 'Cette case n\'est pas encore disponible!',
+              html: `<img src="/noel/gif_say_no.gif" width="400" height="200"><br>Jusqu'au ${formattedDate} !`,
+              confirmButtonText: 'OK'
+            });
           }
         };
 
