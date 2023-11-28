@@ -1,27 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
-  
+  const currentDate = new Date(); // Date actuelle
+
   // créer les éléments HTML pour le header
   const header = document.querySelector('.header-container');
-  
   // Créer l'image du logo
   const img = document.createElement('img');
   img.src = '/img/shuriken.png';
-  
   // Créer le titre
   const h1 = document.createElement('h1');
   h1.textContent = 'SRPG Calendrier de l\'Avent';
-  
   // Ajouter l'image et le titre au header
   header.appendChild(img);
   header.appendChild(h1);
-  
+
   // créer les éléments HTML pour le footer
   const footer = document.querySelector('.footer-container');
-  
   // Créer le titre
   const h2 = document.createElement('h2');
   h2.textContent = 'Joyeux noël aux Shinobi et Kunoichi !';
-  
   // Ajouter le titre au footer
   footer.appendChild(h2);
 
@@ -29,19 +25,48 @@ document.addEventListener('DOMContentLoaded', () => {
   fetch('objet.json')
     .then(response => response.json())
     .then(data => {
-      // Créer les éléments HTML pour chaque objet JSON
       data.cases.forEach(caseItem => {
-        // Créer le div principal
         const div = document.createElement('div');
         div.id = caseItem.id;
         div.className = 'box';
         div.setAttribute('type', caseItem.image.split('.').pop());
         div.setAttribute('href', caseItem.image);
 
+        // Convertir la chaîne de date en objet Date pour la comparaison
+        const caseDate = new Date(caseItem.date); // Supposons que chaque case contient une propriété 'date'
+
+       
+        // Récupérer l'état actuel de la case depuis le localStorage
+        const isOpen = localStorage.getItem(`box_${caseItem.id}`) === 'opened';
+
+        // Fonction pour gérer le clic sur le div
+        const handleClick = () => {
+          // Vérifier si la case est disponible en fonction de la date
+          if (currentDate >= caseDate || isOpen) {
+            const clickedDiv = document.getElementById(caseItem.id);
+            if (!clickedDiv.classList.contains('opened')) {
+              clickedDiv.className = 'box_opened';
+              clickedDiv.textContent = caseItem.message; // Afficher le message spécifique à la case
+              clickedDiv.classList.add('opened'); // Marquer la boîte comme ouverte
+              
+              // Enregistrer l'état de la case dans le localStorage
+              localStorage.setItem(`box_${caseItem.id}`, 'opened');
+            }
+
+            // Retirer l'écouteur d'événements pour empêcher d'autres clics
+            clickedDiv.removeEventListener('click', handleClick);
+          } else {
+            // Afficher un message ou une action pour les cases non ouvertes
+            console.log('Cette case n\'est pas encore disponible !');
+          }
+        };
+
+        // Ajouter un gestionnaire d'événements de clic au div
+        div.addEventListener('click', handleClick);
+
         // Créer l'élément image à l'intérieur du div
         const img = document.createElement('img');
         img.src = caseItem.image;
-
         // Appliquer des styles CSS à l'image
         img.classList.add('style-img');
 
@@ -60,8 +85,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Ajouter le div à l'intérieur de l'élément <div> existant
         calendarContainer.appendChild(div);
-
-
       });
     })
     .catch(error => {

@@ -6,6 +6,7 @@
     padding: 0;
     margin: 0;
     scroll-behavior: smooth;
+    cursor: url(/noel/star.png), auto;
 }
 
 /*////////////////////////////////*/
@@ -23,12 +24,14 @@ body {
     --white : #fff;
     --black: #000000;
     --grey: #292c2f;
+    --beige: #f5f5dc;
+    --brown: #7f451c;
     font-family: 'Mountains of Christmas';
 }
 
 header {
     width: 100%;
-    height: 10vh;
+    height: auto;
     background-color: var(--black);
     display: flex;
     align-items: center;
@@ -36,9 +39,9 @@ header {
 }
 
 header img {
-    width: 2.5em;
-    height: 2.5em;
-    padding: .1em;
+    width: 3vw;
+    height: 3vw;
+    padding: .1%;
     background: overlay;
     background-color: #FF4500;
     border-radius: 50%;
@@ -62,6 +65,7 @@ header img:hover {
 header h1 {
     color: var(--white);
     margin-left: 35vw;
+    font-size: 2.5vw;
 }
 
 .calendar-container {
@@ -95,17 +99,32 @@ header h1 {
     height: 25%;
     margin: 2%;
     color: var(--white);
-    font-size: 2.5em;
+    font-size: 2.5vw;
     text-align: center;
     border-radius: 50%;
     background-color: var(--red);
     position: absolute;
 }
 
+.box_opened {
+    width: 15vw;
+    height: 15vw;
+    margin: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--beige);
+    color: var(--brown);
+    font-size: 1.5vw;
+    text-align: center;
+}
+
+
 
 footer {
     width: 100%;
-    height: 15vh;
+    height: auto;
+    padding: 2%;
     background-color: var(--grey);
     display: flex;
     justify-content: center;
@@ -114,4 +133,5 @@ footer {
 
 footer h2 {
     color: var(--white);
+    font-size: 2.5vw;
 }
