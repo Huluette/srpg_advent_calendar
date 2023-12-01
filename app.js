@@ -48,11 +48,13 @@ document.addEventListener('DOMContentLoaded', () => {
           // Vérifier si la case est disponible en fonction de la date
           if (currentDate >= caseDate || isOpen) {
             const clickedDiv = document.getElementById(caseItem.id);
-            if (clickedDiv.classList.contains('opened')) {
-              clickedDiv.className = 'box_opened';
+            if (!clickedDiv.classList.contains('opened')) {
+              clickedDiv.classList.add('box_opened');
               clickedDiv.textContent = caseItem.message; // Afficher le message spécifique à la case
-              clickedDiv.classList.add('opened'); // Marquer la boîte comme ouverte
               
+              // Marquer la boîte comme ouverte
+              clickedDiv.classList.add('opened');
+          
               // Enregistrer l'état de la case dans le localStorage
               localStorage.setItem(`box_${caseItem.id}`, 'opened');
             }
